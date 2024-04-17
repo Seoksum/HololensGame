@@ -4,25 +4,18 @@ using UnityEngine;
 
 public class Fire : MonoBehaviour
 {
-    public GameObject bullet;
-    public Transform firePos;
-    public Vector3 originPos;
+    [SerializeField] Transform firePos;
+    [SerializeField] Pool pool;
 
-    public Pool pool;
-    
     void Start()
     {
         
     }
 
-    
-    public void fireBullet()
+    public void FireBullet()
     {
-        //originPos = firePos.transform.position;
-        GameObject pooledObject = pool.Dequeue();
+        GameObject pooledObject = pool.OnTakeFromPool();
         pooledObject.transform.position = firePos.transform.position;
-        pooledObject.transform.Translate(Vector3.forward * 2.5f);
-
     }
     
 }

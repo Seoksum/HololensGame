@@ -7,7 +7,7 @@ public class BoxCollider : MonoBehaviour
 
     private void OnCollisionEnter(Collision col)
     {
-        if (col.gameObject.tag == "Bullet")//&&obstacle.Length>=0)
+        if (col.gameObject.tag == "Bullet")
         {
             Debug.Log("Ãæµ¹");
             this.gameObject.SetActive(false);

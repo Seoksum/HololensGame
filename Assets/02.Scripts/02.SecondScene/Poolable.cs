@@ -5,13 +5,13 @@ using UnityEngine;
 public class Poolable : MonoBehaviour
 {
     Pool pool;
-    float activeTime;
+    float activeTime = 2.0f;
     float activeTimeRate = 2.0f;
-    GameObject firePos;
+    //public GameObject gameObject;
 
     void Start()
     {
-        firePos = GameObject.Find("FirePos");
+        
     }
 
     // Update is called once per frame
@@ -20,11 +20,11 @@ public class Poolable : MonoBehaviour
         activeTime -= Time.deltaTime;
         if (activeTime > 0)
         {
-            transform.position += new Vector3(0, 0, 1.0f);
+            transform.position += new Vector3(0, 0, 0.1f);
         }
         else
         {
-            pool.Enqueue(gameObject);
+            pool.OnReturnedToPool(gameObject);
         }
     }
     public void Init(Pool _pool)
@@ -38,6 +38,6 @@ public class Poolable : MonoBehaviour
     }
     public void BulletObj()
     {
-        pool.Enqueue(gameObject);
+        pool.OnReturnedToPool(gameObject);
     }
 }

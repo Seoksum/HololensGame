@@ -6,21 +6,23 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/01.Scenes/01.FirstScene.unity
+    path: Assets/01.Scenes/FirstScene.unity
     guid: 92546c74dc095024298d9baeaefc8cbb
   - enabled: 1
-    path: Assets/01.Scenes/02.SecondScene.unity
+    path: Assets/01.Scenes/SecondScene.unity
     guid: 48b61b77b13d0d34f9dccaecec82a237
   - enabled: 1
-    path: Assets/01.Scenes/03.ThirdScene.unity
+    path: Assets/01.Scenes/ThirdScene.unity
     guid: a4b24a52f79b13a4c954fbc2f9fb2f5b
   - enabled: 1
-    path: Assets/01.Scenes/04.FourthScene.unity
+    path: Assets/01.Scenes/FourthScene.unity
     guid: 4d32e85e1c9ea9a42b9beffb15a0c01c
-  - enabled: 1
-    path: Assets/Seok/05.Fifth/FifthScene.unity
-    guid: acb3696fb210eff488f008dda4b63bb3
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects:
+    Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: 2d4e2c43bea2c034987cba08c269202f,
+      type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 2b15927909de717418d10086d18c759c,
       type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: d290bb942f64a9746a08e1d1f29ca4ea,

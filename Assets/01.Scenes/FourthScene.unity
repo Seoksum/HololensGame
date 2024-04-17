@@ -1359,7 +1359,7 @@ GameObject:
   m_Component:
   - component: {fileID: 83411386}
   m_Layer: 0
-  m_Name: First
+  m_Name: FirstDummy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1533,7 +1533,7 @@ GameObject:
   m_Component:
   - component: {fileID: 131383115}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: LeftDummyAvatar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4999,7 +4999,7 @@ GameObject:
   - component: {fileID: 458117712}
   - component: {fileID: 458117711}
   m_Layer: 0
-  m_Name: LeftFoot
+  m_Name: LeftFootSphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5939,9 +5939,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Success !
-
-    Next Third'
+  m_text: Success !
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6a84f857bec7e7345843ae29404c57ce, type: 2}
   m_sharedMaterial: {fileID: 21202819797275496, guid: 6a84f857bec7e7345843ae29404c57ce,
@@ -7399,7 +7397,7 @@ GameObject:
   - component: {fileID: 707935144}
   - component: {fileID: 707935143}
   m_Layer: 0
-  m_Name: RightFoot
+  m_Name: RightFootSphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10404,7 +10402,7 @@ GameObject:
   - component: {fileID: 1075491179}
   - component: {fileID: 1075491178}
   m_Layer: 0
-  m_Name: LeftHand
+  m_Name: LeftHandSphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10529,7 +10527,7 @@ MonoBehaviour:
   rotateLerpTime: 0.001
   scaleLerpTime: 0.001
   enableConstraints: 1
-  constraintsManager: {fileID: 1075491180}
+  constraintsManager: {fileID: 458117713}
   elasticsManager: {fileID: 0}
   onManipulationStarted:
     m_PersistentCalls:
@@ -11649,26 +11647,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88b3e0c9584a37a4cbb1207b2ed24957, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  original:
-    OriginalModel: {fileID: 131383114}
+  originalDummy:
+    DummyModel: {fileID: 131383114}
     LeftHand: {fileID: 1075491173}
     RightHand: {fileID: 1324632044}
     LeftFoot: {fileID: 458117710}
     RightFoot: {fileID: 707935142}
-  copied:
-    FirstModel: {fileID: 83411385}
+  DummyToCopy1:
+    DummyModel: {fileID: 83411385}
     LeftHand: {fileID: 510290889}
     RightHand: {fileID: 1195648589}
     LeftFoot: {fileID: 1794708431}
     RightFoot: {fileID: 1920229395}
-  copied2:
-    SecondModel: {fileID: 1879240599}
+  DummyToCopy2:
+    DummyModel: {fileID: 1879240599}
     LeftHand: {fileID: 901256997}
     RightHand: {fileID: 775656239}
     LeftFoot: {fileID: 1785140320}
     RightFoot: {fileID: 508589558}
-  copied3:
-    ThirdModel: {fileID: 1663965341}
+  DummyToCopy3:
+    DummyModel: {fileID: 1663965341}
     LeftHand: {fileID: 388821196}
     RightHand: {fileID: 937985557}
     LeftFoot: {fileID: 1871877985}
@@ -12935,7 +12933,7 @@ GameObject:
   - component: {fileID: 1324632046}
   - component: {fileID: 1324632045}
   m_Layer: 0
-  m_Name: RightHand
+  m_Name: RightHandSphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12984,7 +12982,7 @@ MonoBehaviour:
   rotateLerpTime: 0.001
   scaleLerpTime: 0.001
   enableConstraints: 1
-  constraintsManager: {fileID: 1324632047}
+  constraintsManager: {fileID: 458117713}
   elasticsManager: {fileID: 0}
   onManipulationStarted:
     m_PersistentCalls:
@@ -15853,7 +15851,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1663965342}
   m_Layer: 0
-  m_Name: Third
+  m_Name: ThirdDummy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17151,7 +17149,6 @@ MonoBehaviour:
   rightHandObj: {fileID: 1324632051}
   leftFootObj: {fileID: 458117717}
   rightFootObj: {fileID: 707935149}
-  lookObj: {fileID: 0}
 --- !u!1 &1848594815
 GameObject:
   m_ObjectHideFlags: 0
@@ -17554,7 +17551,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1879240600}
   m_Layer: 0
-  m_Name: Second
+  m_Name: SecondDummy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

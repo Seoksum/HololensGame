@@ -688,12 +688,11 @@ GameObject:
   m_Component:
   - component: {fileID: 128352466}
   - component: {fileID: 128352471}
-  - component: {fileID: 128352470}
   - component: {fileID: 128352469}
   - component: {fileID: 128352467}
+  - component: {fileID: 128352468}
   - component: {fileID: 128352472}
   - component: {fileID: 128352473}
-  - component: {fileID: 128352468}
   m_Layer: 0
   m_Name: Dummy3
   m_TagString: Enemy
@@ -769,19 +768,6 @@ NavMeshAgent:
   m_BaseOffset: 0.1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &128352470
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 128352465}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3489f5ec734145f418555ae011e987ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 392307287}
 --- !u!95 &128352471
 Animator:
   serializedVersion: 3
@@ -810,9 +796,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 128352465}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d3c3ffd6e176b84a944f2f30ce4d753, type: 3}
+  m_Script: {fileID: 11500000, guid: 327eaf54d7dfef545a169715d6331b99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsDied: 0
 --- !u!114 &128352473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -822,10 +809,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 128352465}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e440e441cafa3c54da060914c49d091f, type: 3}
+  m_Script: {fileID: 11500000, guid: f60de84451cfe0d4eb1e79636ce9fd5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsDied: 0
+  target: {fileID: 392307287}
 --- !u!1 &144905416
 GameObject:
   m_ObjectHideFlags: 0
@@ -4746,7 +4733,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1260597670292727}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Moveable, Assembly-CSharp
         m_MethodName: EnemyMove
         m_Mode: 1
@@ -8566,12 +8553,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2060459235}
   - component: {fileID: 2060459240}
-  - component: {fileID: 2060459239}
   - component: {fileID: 2060459238}
   - component: {fileID: 2060459236}
+  - component: {fileID: 2060459237}
   - component: {fileID: 2060459241}
   - component: {fileID: 2060459242}
-  - component: {fileID: 2060459237}
   m_Layer: 0
   m_Name: Dummy2
   m_TagString: Enemy
@@ -8647,19 +8633,6 @@ NavMeshAgent:
   m_BaseOffset: 0.1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &2060459239
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2060459234}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3489f5ec734145f418555ae011e987ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 1820188737}
 --- !u!95 &2060459240
 Animator:
   serializedVersion: 3
@@ -8688,9 +8661,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2060459234}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d3c3ffd6e176b84a944f2f30ce4d753, type: 3}
+  m_Script: {fileID: 11500000, guid: 327eaf54d7dfef545a169715d6331b99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsDied: 0
 --- !u!114 &2060459242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8700,10 +8674,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2060459234}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e440e441cafa3c54da060914c49d091f, type: 3}
+  m_Script: {fileID: 11500000, guid: f60de84451cfe0d4eb1e79636ce9fd5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsDied: 0
+  target: {fileID: 1820188737}
 --- !u!1 &2079898021
 GameObject:
   m_ObjectHideFlags: 0
@@ -9235,12 +9209,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4759721787173801}
   - component: {fileID: 95509902882696975}
-  - component: {fileID: 1260597670292727}
   - component: {fileID: 1260597670292726}
   - component: {fileID: 1260597670292724}
+  - component: {fileID: 1260597670292725}
   - component: {fileID: 1260597670292728}
   - component: {fileID: 1260597670292729}
-  - component: {fileID: 1260597670292725}
   m_Layer: 0
   m_Name: Dummy1
   m_TagString: Enemy
@@ -9299,19 +9272,6 @@ NavMeshAgent:
   m_BaseOffset: 0.1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &1260597670292727
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1260597670292723}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3489f5ec734145f418555ae011e987ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 1820188737}
 --- !u!114 &1260597670292728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9321,9 +9281,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1260597670292723}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d3c3ffd6e176b84a944f2f30ce4d753, type: 3}
+  m_Script: {fileID: 11500000, guid: 327eaf54d7dfef545a169715d6331b99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsDied: 0
 --- !u!114 &1260597670292729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9333,10 +9294,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1260597670292723}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e440e441cafa3c54da060914c49d091f, type: 3}
+  m_Script: {fileID: 11500000, guid: f60de84451cfe0d4eb1e79636ce9fd5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsDied: 0
+  target: {fileID: 1820188737}
 --- !u!1 &1261804674469895
 GameObject:
   m_ObjectHideFlags: 0
@@ -15495,32 +15456,15 @@ GameObject:
   - component: {fileID: 4658773031710575274}
   - component: {fileID: 4658773031710575273}
   - component: {fileID: 4658773031710575272}
-  - component: {fileID: 4658773031710575271}
   - component: {fileID: 4658773031710575275}
+  - component: {fileID: 4658773031710575276}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &4658773031710575271
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4658773031710575270}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc4692de723c02d4fb4ba606ab251ad8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _countDown: {fileID: 3333361189618412716}
-  NextSceneCanvas: {fileID: 7512082122205321192}
-  Dummy1: {fileID: 1260597670292723}
-  Dummy2: {fileID: 2060459234}
-  Dummy3: {fileID: 128352465}
+  m_IsActive: 0
 --- !u!114 &4658773031710575272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15605,6 +15549,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.26489046, y: 0.9151654, z: 0.08577994}
   m_Center: {x: -0.0048343907, y: 0.3130195, z: -0.009061751}
+--- !u!114 &4658773031710575276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4658773031710575270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaff642e5dd2e5d499819143434d3af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _countDown: {fileID: 3333361189618412716}
+  NextSceneCanvas: {fileID: 7512082122205321192}
+  Dummy1: {fileID: 1260597670292723}
+  Dummy2: {fileID: 2060459234}
+  Dummy3: {fileID: 128352465}
 --- !u!23 &4658773031712576608
 MeshRenderer:
   m_ObjectHideFlags: 0

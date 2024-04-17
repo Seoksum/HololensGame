@@ -3,25 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Moveable : MonoBehaviour
+public class EnemyMoving : MonoBehaviour
 {
-     NavMeshAgent agent;
+    NavMeshAgent agent;
     [SerializeField] Transform target;
-    //Animator childAnim;
     Animator anim;
     float dis;
 
 
     void Awake()
     {
-        agent = GetComponent<NavMeshAgent>();
-        //childAnim = GetComponentInChildren<Animator>();
+        agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         anim = GetComponent<Animator>();
     }
 
     void Update()
     {
-
         float dis = Vector3.Distance(agent.transform.position, target.transform.position);
 
         if (Vector3.Distance(agent.transform.position, target.transform.position) < 0.5f)
@@ -29,12 +26,11 @@ public class Moveable : MonoBehaviour
             anim.SetBool("IsRun", false);
             anim.SetBool("IsAttack", true);
             transform.eulerAngles = new Vector3(0, -150, 0);
-            //StartCoroutine(Attack());
         }
 
     }
 
-    public void EnemyMove()
+    public void OnStartToRun()
     {
         agent.SetDestination(target.position);
         anim.SetBool("IsRun", true);

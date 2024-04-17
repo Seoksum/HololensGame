@@ -3,36 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public struct Original
+public struct DummyInfo
 {
-    public GameObject OriginalModel;
-    public GameObject LeftHand;
-    public GameObject RightHand;
-    public GameObject LeftFoot;
-    public GameObject RightFoot;
-}
-[System.Serializable]
-public struct FirstCopied
-{
-    public GameObject FirstModel;
-    public GameObject LeftHand;
-    public GameObject RightHand;
-    public GameObject LeftFoot;
-    public GameObject RightFoot;
-}
-[System.Serializable]
-public struct SecondCopied
-{
-    public GameObject SecondModel;
-    public GameObject LeftHand;
-    public GameObject RightHand;
-    public GameObject LeftFoot;
-    public GameObject RightFoot;
-}
-[System.Serializable]
-public struct ThirdCopied
-{
-    public GameObject ThirdModel;
+    public GameObject DummyModel;
     public GameObject LeftHand;
     public GameObject RightHand;
     public GameObject LeftFoot;
@@ -41,135 +14,117 @@ public struct ThirdCopied
 
 public class CheckPosition : MonoBehaviour
 {
-    public Original original = new Original();
-    public FirstCopied copied = new FirstCopied();
-    public SecondCopied copied2 = new SecondCopied();
-    public ThirdCopied copied3 = new ThirdCopied();
+    int stageIndex = 1;
+
+    public DummyInfo originalDummy = new DummyInfo();
+    public DummyInfo DummyToCopy1 = new DummyInfo();
+    public DummyInfo DummyToCopy2 = new DummyInfo();
+    public DummyInfo DummyToCopy3 = new DummyInfo();
 
 
     public GameObject FirstToSecondBtn;
     public GameObject SecondToThirdBtn;
     public GameObject ThirdToFinishBtn;
 
-    float OriginalToFirstDis;
-    float OriginalToSecond;
-    double OriginalToThird;
+    float DummyPositionDiff;
 
     float LeftHandDis;
     float RightHandDis;
     float LeftFootDis;
     float RightFootDis;
 
-    float secondY;
-    float ThirdY;
+    float LF_DiffY;
+    float RH_DiffY;
+    float LH_DiffY;
+
+    float diff = 0.15f;
 
     // Start is called before the first frame update
     void Start()
     {
-        OriginalToFirstDis = Vector3.Distance(original.OriginalModel.transform.position, copied.FirstModel.transform.position);
-        OriginalToSecond = Vector3.Distance(original.OriginalModel.transform.position, copied2.SecondModel.transform.position);
-        OriginalToThird = Vector3.Distance(original.OriginalModel.transform.position, copied3.ThirdModel.transform.position);
-
-        Debug.Log("OriginalToFirstDis : "+ OriginalToFirstDis);
-        Debug.Log("OriginalToSecond : " + OriginalToSecond);
-        Debug.Log("OriginalToThird : " + OriginalToThird);
-
-
-        secondY = copied2.LeftFoot.transform.localPosition.y;
-        ThirdY = copied3.RightHand.transform.localPosition.y;
+        DummyPositionDiff = Vector3.Distance(originalDummy.DummyModel.transform.position, DummyToCopy1.DummyModel.transform.position);
     }
 
     // Update is called once per frame
     void Update()
     {
-        FirstPosition();
-        SecondPosition();
-        ThirdPosition();
-    }
-    void FirstPosition()
-    {
-
-        if (copied.FirstModel.activeSelf == true)
-        {
-            LeftHandDis = Vector3.Distance(original.LeftHand.transform.position, copied.LeftHand.transform.position);
-            RightHandDis = Vector3.Distance(original.RightHand.transform.position, copied.RightHand.transform.position);
-            LeftFootDis = Vector3.Distance(original.LeftFoot.transform.position, copied.LeftFoot.transform.position);
-            RightFootDis = Vector3.Distance(original.RightFoot.transform.position, copied.RightFoot.transform.position);
-
-            if (LeftHandDis >= OriginalToFirstDis - 1.0f && LeftHandDis < OriginalToFirstDis
-                && RightHandDis >= OriginalToFirstDis - 1.0f && RightHandDis < OriginalToFirstDis)
-            {
-                copied.FirstModel.SetActive(false);
-                FirstToSecondBtn.SetActive(true);
-            }
-        }
+        if (stageIndex == 1) { CheckDummyPosition(ref DummyToCopy1); }
+        else if (stageIndex == 2) { CheckDummyPosition(ref DummyToCopy2); }
+        else if (stageIndex == 3) { CheckDummyPosition(ref DummyToCopy3); }
     }
 
-    void SecondPosition()
+    void CheckDummyPosition(ref DummyInfo info)
     {
-        LeftHandDis = Vector3.Distance(original.LeftHand.transform.position, copied2.LeftHand.transform.position);
-        RightHandDis = Vector3.Distance(original.RightHand.transform.position, copied2.RightHand.transform.position);
-        LeftFootDis = Vector3.Distance(original.LeftFoot.transform.position, copied2.LeftFoot.transform.position);
-        RightFootDis = Vector3.Distance(original.RightFoot.transform.position, copied2.RightFoot.transform.position);
+        if (info.DummyModel.activeSelf == false)
+            return;
         
-        if (copied2.SecondModel.activeSelf == true)
+        LeftHandDis = Vector3.Distance(originalDummy.LeftHand.transform.position, info.LeftHand.transform.position);
+        RightHandDis = Vector3.Distance(originalDummy.RightHand.transform.position, info.RightHand.transform.position);
+        LeftFootDis = Vector3.Distance(originalDummy.LeftFoot.transform.position, info.LeftFoot.transform.position);
+        RightFootDis = Vector3.Distance(originalDummy.RightFoot.transform.position, DummyToCopy3.RightFoot.transform.position);
+
+        if (DummyPositionDiff + diff <= LeftHandDis || LeftHandDis <= DummyPositionDiff - diff ||
+            DummyPositionDiff + diff <= RightHandDis || RightHandDis <= DummyPositionDiff - diff ||
+            DummyPositionDiff + diff <= LeftFootDis || LeftFootDis <= DummyPositionDiff - diff ||
+            DummyPositionDiff + diff <= RightFootDis || RightFootDis <= DummyPositionDiff - diff)
         {
-
-            if (LeftHandDis > OriginalToFirstDis - 0.2f && LeftHandDis < OriginalToFirstDis + 0.15f &&
-               RightHandDis > OriginalToFirstDis - 0.2f && RightHandDis < OriginalToFirstDis + 0.15f &&
-               LeftFootDis > OriginalToFirstDis - 0.2f&& original.LeftFoot.transform.position.y >= secondY-0.2f)// + 0.1f && original.LeftFoot.transform.position.y>secondY-0.1f)
-            {
-                copied2.SecondModel.SetActive(false);
-                SecondToThirdBtn.SetActive(true);
-
-            }
-
+            return;
         }
-        if (Input.GetKey(KeyCode.O))
-            Debug.Log("Second LeftHandDis : " + LeftHandDis);
-        if (Input.GetKey(KeyCode.P))
-            Debug.Log("Second RightHandDis : " + RightHandDis);
-        if (Input.GetKey(KeyCode.I))
+
+        LF_DiffY = Mathf.Abs(info.LeftFoot.transform.position.y - originalDummy.LeftFoot.transform.position.y);
+        RH_DiffY = Mathf.Abs(info.RightHand.transform.position.y - originalDummy.RightHand.transform.position.y);
+        LH_DiffY = Mathf.Abs(info.LeftHand.transform.position.y - originalDummy.LeftHand.transform.position.y);
+
+        if (stageIndex == 1)
         {
-            Debug.Log("SecondPosition LeftFootDis : " + LeftFootDis);          
+            info.DummyModel.SetActive(false);
+            FirstToSecondBtn.SetActive(true);
+            stageIndex++;
         }
-        if (Input.GetKey(KeyCode.L))
+        else if (stageIndex == 2 && CheckSecondDummyPosition())
         {
-            Debug.Log("OriginalToFirstDis : " + OriginalToFirstDis);
-            Debug.Log("OriginalToSecond : " + OriginalToSecond);
-            Debug.Log("OriginalToThird : " + OriginalToThird);
+            info.DummyModel.SetActive(false);
+            SecondToThirdBtn.SetActive(true);
+            stageIndex++;
+        }
+        else if (stageIndex == 3 && CheckThirdDummyPosition())
+        {
+            info.DummyModel.SetActive(false);
+            ThirdToFinishBtn.SetActive(true);
+            stageIndex++;
         }
     }
-    void ThirdPosition()
+
+    bool CheckSecondDummyPosition()
     {
-        LeftHandDis = Vector3.Distance(original.LeftHand.transform.position, copied3.LeftHand.transform.position);
-        RightHandDis = Vector3.Distance(original.RightHand.transform.position, copied3.RightHand.transform.position);
-        LeftFootDis = Vector3.Distance(original.LeftFoot.transform.position, copied3.LeftFoot.transform.position);
-        RightFootDis = Vector3.Distance(original.RightFoot.transform.position, copied3.RightFoot.transform.position);
+        if (LF_DiffY <= diff)
+            return true;
+        return false;
+    }
 
-        if (copied3.ThirdModel.activeSelf == true)
-        {
-
-            if (LeftHandDis > OriginalToThird - 0.2f && LeftHandDis < OriginalToThird + 0.15f &&
-               RightHandDis > OriginalToThird - 0.2f && original.RightHand.transform.position.y >= ThirdY+0.85f &&
-               LeftFootDis > OriginalToThird - 0.2f && LeftFootDis < OriginalToThird + 0.15f)
-            {
-                copied3.ThirdModel.SetActive(false);
-                ThirdToFinishBtn.SetActive(true);
-
-            }
-
-        }
-        if (Input.GetKey(KeyCode.O))
-            Debug.Log("Third LeftHandDis : " + LeftHandDis);
-        if (Input.GetKey(KeyCode.P))
-            Debug.Log("Third RightHandDis : " + RightHandDis);
-        if (Input.GetKey(KeyCode.I))
-        {
-            Debug.Log("Third LeftFootDis : " + LeftFootDis);
-            Debug.Log("Third RightHand.y : " + original.RightHand.transform.position.y);
-            Debug.Log("Third ThirdY : " + ThirdY);
-        }
+    bool CheckThirdDummyPosition()
+    {
+        if (LF_DiffY <= diff && RH_DiffY <= diff && LH_DiffY <= diff)
+            return true;
+        return false;
     }
 
 }
+
+//if (Input.GetKey(KeyCode.O))
+//    Debug.Log("Second LeftHandDis : " + LeftHandDis);
+//if (Input.GetKey(KeyCode.P))
+//    Debug.Log("Second RightHandDis : " + RightHandDis);
+//if (Input.GetKey(KeyCode.I))
+//{
+//    Debug.Log("SecondPosition LeftFootDis : " + LeftFootDis);
+//}
+//if (Input.GetKey(KeyCode.L))
+//{
+//    Debug.Log("Original Left Hand : " + originalDummy.LeftHand.transform.position.y);
+//    Debug.Log("Original Right Hand : " + originalDummy.RightHand.transform.position.y);
+//    Debug.Log("Original Left Foot : " + originalDummy.LeftFoot.transform.position.y);
+//    Debug.Log("S3_LeftHandDiffY : " + S3_LeftHandDiffY);
+//    Debug.Log("S3_RightHandDiffY : " + S3_RightHandDiffY);
+//    Debug.Log("S3_LeftFootDiffY : " + S3_LeftFootDiffY);
+//}

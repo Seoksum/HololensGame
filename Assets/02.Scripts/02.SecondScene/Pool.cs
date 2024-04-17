@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Pool : MonoBehaviour
 {
-    public GameObject poolableObject;
-    public int objectpoolCount = 10;
-    Queue<GameObject> objectPool = new Queue<GameObject>();
+    public GameObject PoolableObject;
+    public int ObjectCount = 10;
+    Queue<GameObject> ObjectPool = new Queue<GameObject>();
 
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < objectpoolCount; i++)
+        for (int i = 0; i < ObjectCount; i++)
         {
             CreatePooledObject();
         }
@@ -19,30 +19,30 @@ public class Pool : MonoBehaviour
 
     void CreatePooledObject()
     {
-        GameObject temp = Instantiate(poolableObject);
-        
-        temp.GetComponent<Poolable>().Init(this);
-        temp.SetActive(false);
-        objectPool.Enqueue(temp);
+        GameObject bullet = Instantiate(PoolableObject);
+        bullet.GetComponent<Poolable>().Init(this);
+        bullet.SetActive(false);
+        ObjectPool.Enqueue(bullet);
     }
 
     // Get Object
-    public GameObject Dequeue()
+    public GameObject OnTakeFromPool()
     {
-        if (objectPool.Count <= 0)
+        if (ObjectPool.Count <= 0)
         {
             CreatePooledObject();
         }
 
-        GameObject dequeueObject = objectPool.Dequeue();
-        dequeueObject.GetComponent<Poolable>().CleanUp();
-        dequeueObject.SetActive(true);
-        return dequeueObject;
+        GameObject Object = ObjectPool.Dequeue();
+        Object.GetComponent<Poolable>().CleanUp();
+        Object.SetActive(true);
+        return Object;
     }
+
     // Back to pool
-    public void Enqueue(GameObject _enqueueObject)
+    public void OnReturnedToPool(GameObject _enqueueObject)
     {
         _enqueueObject.SetActive(false);
-        objectPool.Enqueue(_enqueueObject);
+        ObjectPool.Enqueue(_enqueueObject);
     }
 }
